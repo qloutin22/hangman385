@@ -19,4 +19,4 @@ def ask_for_input(guess):
      if len(guess) != 1 and guess.isalpha() != True:
             print("Invalid letter. Please, enter a single alphabetical character.")
    
-ask_for_input()
+ask_for_input(guess)
