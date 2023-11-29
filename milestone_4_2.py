@@ -22,12 +22,16 @@ class Hangman :
     def check_guess(self, guess):
         guess = guess.lower()
         if len(guess) and guess.isalpha() == True: 
-
             if any(guess.lower() in word.lower() for word in word_list):
                 print("Good guess!", guess , "is in the word.")
-
+                for index, letter in enumerate(self.word):
+                    if letter.lower() == guess:
+                        self.word_guessed[index] = letter
+                self.num_letters =-1
             else:
                 print("Sorry," ,guess," is not in the word. Try again.")
+                self.num_lives =-1
+                print("You have", self.num_lives ,"lives left")
 
     
     
