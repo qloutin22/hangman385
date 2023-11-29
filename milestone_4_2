@@ -7,7 +7,6 @@ Created on Wed Nov 29 13:46:08 2023
 
 import random 
 word_list = ["Mango" ,"Apple","Pomgrante","Orange"," Banana"]
-list_of_guesses = []
 
 class Hangman :
     def __init__ (self,word_list,num_lives=5):
@@ -19,14 +18,14 @@ class Hangman :
         self.list_of_guesses = []
         
         
-    @classmethod
+  
     def add_letter(guess, list_of_guesses):
         list_of_guesses = []
         for guess in list_of_guesses:
             list_of_guesses.apprend(guess)
         return print(set((list_of_guesses.append(guess))))
     
-    @staticmethod
+  
     def check_guess(guess):
         while True: 
             if len(guess) and guess.isalpha() == True:
@@ -36,8 +35,7 @@ class Hangman :
                     list_of_guesses.append(guess)  
                 else:
                     print("Sorry," ,guess," is not in the word. Try again.")
-                    break
-                list_of_guesses.append(guess)            
+                    break        
             break
         return 
     

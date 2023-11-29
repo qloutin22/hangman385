@@ -7,7 +7,6 @@ Created on Wed Nov 29 13:46:08 2023
 
 import random 
 word_list = ["Mango" ,"Apple","Pomgrante","Orange"," Banana"]
-list_of_guesses = []
 
 class Hangman :
     def __init__ (self,word_list,num_lives=5):
@@ -19,13 +18,12 @@ class Hangman :
         self.list_of_guesses = []
         
         
-    @classmethod
-    def add_letter(guess, list_of_guesses):
-        for guess in list_of_guesses:
-            list_of_guesses.apprend(guess)
-        return print(set((list_of_guesses.append(guess))))
     
-    @staticmethod
+    def add_letter(cls, guess):
+        
+        cls.list_of_guesses.append(guess)
+    
+    
     def check_guess(guess):
         guess = guess.lower()
         if len(guess) and guess.isalpha() == True: 
@@ -33,22 +31,24 @@ class Hangman :
                 print("Good guess!", guess , "is in the word.")
             else:
                 print("Sorry," ,guess," is not in the word. Try again.")
-        return list_of_guesses.append(guess)
-    print(list_of_guesses)
+
     
-    @staticmethod
-    def ask_for_input():
-        guess = str(input("Please input a letter?"))
+    
+    def ask_for_input(guess):
+        
         while True: 
+            guess = str(input("Please input a letter?"))
+            list_of_guesses = []
             if len(guess) != 1 or guess.isalpha() != True:
-                print("Invalid letter. Please, enter a single alphabetical character.")
-                break
+                print("Invalid letter. Please, enter a single alphabetical character.") 
             elif guess in list_of_guesses:
                 print("You already tried that letter!") 
-                break
             else:
                 Hangman.check_guess(guess)
-        return list_of_guesses.append(guess)
-    print(list_of_guesses.append(guess))
+                Hangman.add_letter(guess)
+                break
+            return print(list_of_guesses)
+
+
 hangman = Hangman(word_list)
 hangman.ask_for_input()
