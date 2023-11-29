@@ -49,6 +49,6 @@ class Hangman :
             else:
                 Hangman.check_guess(guess)
         return list_of_guesses.append(guess)
-        print(list_of_guesses.append(guess))
+    print(list_of_guesses.append(guess))
 hangman = Hangman(word_list)
 hangman.ask_for_input()
