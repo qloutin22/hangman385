@@ -37,22 +37,21 @@ class Hangman :
     
     
     def ask_for_input(self):
-        
-        while True: 
-            guess = str(input("Please input a letter?"))
-
-            if len(guess) != 1 or guess.isalpha() != True:
-                print("Invalid letter. Please, enter a single alphabetical character.") 
-                Hangman.ask_for_input(self)
-            elif guess in self.list_of_guesses:
-                print("You already tried that letter!") 
-                Hangman.ask_for_input(self)
+        guess = input("Please input a letter?")
+    list_of_guesses = []
+        for guess in list_of_guesses:
+            while True: 
+                if len(guess) != 1 or  guess.isalpha() != True:
+                    print("Invalid letter. Please, enter a single alphabetical character.") 
+                break
+                elif guess in list_of_guesses() :
+                print("You already tried that letter!")  
+                break
             else:
-                self.check_guess(guess) 
-                self.list_of_guesses.append(guess)
-                print(self.list_of_guesses)
-                Hangman.ask_for_input(self)
-            return 
+                check_guess(guess)
+            
+                break
+    list_of_guesses = list_of_guesses + guess
         
 
 def play_game (word_list):
