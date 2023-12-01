@@ -22,12 +22,15 @@ class Hangman :
                         self.word_guessed[index] = letter
                 self.num_letters = self.num_letters-1
                 print(self.word_guessed)
+                if guess in self.word == self.word_guessed:
+                    print ("You won!")
             else:
                 print("Sorry," ,guess," is not in the word. Try again.")
                 self.num_lives = self.num_lives -1
                 print("You have", self.num_lives ,"lives left")
                 if self.num_lives == 0:
                     print("You Lost!")
+                
 
                 
 
